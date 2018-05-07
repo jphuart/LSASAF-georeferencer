@@ -1,0 +1,5 @@
+sudo apt-get install python-qt4 gdal-bin
+pip install tables proj
+pip install vext.pyqt4
+
+

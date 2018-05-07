@@ -64,11 +64,10 @@ class H5Georef(object):
         self.p1 = 42164 
         self.p2 = 1.006803
         self.p3 = 1737121856
-        h5File = tables.openFile(h5FilePath)
+        h5File = tables.open_file(h5FilePath)
         self.arrays = dict()
-        mainArrayName = h5File.root._f_getChild(h5File.root._v_attrs[\
-                        "PRODUCT"]).name
-        for arr in h5File.walkNodes("/", "Array"):
+        mainArrayName = h5File.root._f_get_child(h5File.root._v_attrs["PRODUCT"]).name
+        for arr in h5File.walk_nodes("/", "Array"):
             npArray = arr.read()
             scalingFactor = arr._v_attrs["SCALING_FACTOR"]
             self.arrays[arr.name] = {
@@ -94,8 +93,7 @@ class H5Georef(object):
         self.cfac = h5File.root._v_attrs["CFAC"] # should this be corrected too?
         self.lfac = h5File.root._v_attrs["LFAC"] # should this be corrected too?
         self.satHeight = 35785831
-        self.GEOSProjString = "+proj=geos +lon_0=%s +h=%s +x_0=0.0 +y_0=0.0" \
-                              % (self.subLon, self.satHeight)
+        self.GEOSProjString = "+proj=geos +lon_0=%s +h=%s +x_0=0.0 +y_0=0.0" % (self.subLon, self.satHeight)
         h5File.close()
 
     def get_sample_coords(self, numSamples=10):

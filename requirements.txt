@@ -1,0 +1,14 @@
+arrow==0.12.1
+backports.functools-lru-cache==1.5
+click==6.7
+numexpr==2.6.5
+numpy==1.14.3
+proj==0.1.0
+python-dateutil==2.7.2
+python-qt==0.50
+ruamel.ordereddict==0.4.13
+ruamel.yaml==0.15.37
+six==1.11.0
+tables==3.4.3
+vext==0.7.0
+vext.pyqt4==0.5.20

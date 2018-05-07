@@ -1,2 +1,12 @@
 # ignore patterns
+*~
 *.pyc
+
+# ignore files
+.project
+.pydevproject
+.settings
+
+# ignore directories
+data/
+georefs/
