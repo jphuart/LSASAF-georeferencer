@@ -2,4 +2,8 @@ sudo apt-get install python-qt4 gdal-bin
 pip install tables proj
 pip install vext.pyqt4
 
+* Using the terminal 
 
+cd /dev/venvpy/lsasaf-env/
+source bin/activate
+python georef_hdf5.py -o /home/jph/dev/venvpy/lsasaf-env/LSASAF-georeferencer/data /home/jph/dev/venvpy/lsasaf-env/LSASAF-georeferencer/data/HDF5_LSASAF_MSG_DSSF_MSG-Disk_201510251200 

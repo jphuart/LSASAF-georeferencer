@@ -83,7 +83,7 @@ class H5Georef(object):
                 self.arrays[arr.name]["mainArray"] = True
         subLonRE = re.search(r"[A-Za-z]{4}[<(][-+]*[0-9]{3}\.?[0-9]*[>)]",
                              h5File.root._v_attrs["PROJECTION_NAME"])
-
+        
         if subLonRE:
             self.subLon = float(subLonRE.group()[5:-1])
         else:
@@ -93,7 +93,8 @@ class H5Georef(object):
         self.cfac = h5File.root._v_attrs["CFAC"] # should this be corrected too?
         self.lfac = h5File.root._v_attrs["LFAC"] # should this be corrected too?
         self.satHeight = 35785831
-        self.GEOSProjString = "+proj=geos +lon_0=%s +h=%s +x_0=0.0 +y_0=0.0" % (self.subLon, self.satHeight)
+#         self.GEOSProjString = "+proj=geos +lon_0=%s +h=%s +x_0=0.0 +y_0=0.0" % (self.subLon, self.satHeight)
+        self.GEOSProjString = "+proj=geos +lon_0=%s +h=%s +x_0=0.0 +y_0=0.0 +a=6378140 +b=6356754.99999591 +units=m +no_defs" % (self.subLon, self.satHeight)
         h5File.close()
 
     def get_sample_coords(self, numSamples=10):
